@@ -1,21 +1,22 @@
-function allData(){
+const allLevels=()=>{
     fetch('https://openapi.programming-hero.com/api/levels/all')
     .then(res=>res.json())
-    .then(data=>showData(data.data)
+    .then(data=>allLevelDisplay(data.data)
     )
 }
-const showData=(levels)=>{
-console.log(levels);
-    const allDisplayData=document.getElementById('allDisplayData')
-    for(let level of levels){
-        console.log(level)
-        const div= document.createElement('div')
+const allLevelDisplay=(levels)=>{
+    const allCategoryLevels=document.getElementById('allDisplayData')
+    levels.forEach(level => {
+        const div =document.createElement('div');
         div.innerHTML=`
-        <button class="btn btn-outline">${level.lessonName
-}</button>
+        <button onclick='displayCategoryData(${level.level_no})' class="btn p-8">${level.lessonName}</button>
         `
-        allDisplayData.appendChild(div)
-    }
+        
+         allCategoryLevels.append(div);
+    });
+   
 }
 
-allData()
+
+
+allLevels()
