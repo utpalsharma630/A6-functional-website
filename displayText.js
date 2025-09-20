@@ -1,8 +1,23 @@
+const removeActiveClass=()=>{
+    const activeClass=document.getElementsByClassName('active')
+    for(let clickBtn of activeClass){
+            clickBtn.classList.remove('active')
+            
+        }
+}
+
+
+
 const displayCategoryData=(id)=>{
     const url=`https://openapi.programming-hero.com/api/level/${id}`
     fetch(url)
     .then(res=>res.json())
-    .then(data=>btnClickdData(data.data)
+    .then(data=>{
+        removeActiveClass()
+        const btnClicked=document.getElementById(`btn-${id}`)
+        btnClicked.classList.add('active')
+        btnClickdData(data.data)
+    }
     )
     
     
@@ -20,7 +35,6 @@ const btnClickdData=(categorys)=>{
         return; 
         
     }
-    // defaultText.style.display='none'
     categorys.forEach(category => {
         const div= document.createElement('div')
         
@@ -31,7 +45,7 @@ const btnClickdData=(categorys)=>{
                 <p> meaning, pronunciation</p>
                 <p> ${category.meaning}, ${category.pronunciation}</p>
                 <div class="card-actions justify-between">
-                    <button class="btn"><i class="fa-solid fa-circle-info"></i></button>
+                    <button class="btn"><i id='deatils'  class="fa-solid fa-circle-info"></i></button>
                     <button class="btn"><i class="fa-solid fa-volume-high"></i></button>
                 </div>
             </div>
@@ -42,3 +56,23 @@ const btnClickdData=(categorys)=>{
         categoryDataDisplay.append(div)
     });
 }
+// modal
+
+// const detailsInfo=()=>{
+//     const info=document.getElementById('deatils-info')
+//     const div=document.createElement('div')
+
+//     div.innerHTML=`
+//     <div class="card bg-base-100 h-[200px] shadow-sm text-center">
+//             <div class="card-body ">
+//                 <h2 class="">${category.word}</h2>
+//                 <p> meaning, pronunciation</p>
+//                 <p> ${category.meaning}, ${category.pronunciation}</p>
+                
+//             </div>
+//         </div>
+//     `
+//     info.append(div)
+    
+    
+// }
