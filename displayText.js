@@ -37,6 +37,8 @@ const btnClickdData=(categorys)=>{
     }
     categorys.forEach(category => {
         const div= document.createElement('div')
+        // console.log(category.id);
+        
         
         div.innerHTML=`
         <div class="card bg-base-100 h-[200px] shadow-sm text-center">
@@ -45,7 +47,7 @@ const btnClickdData=(categorys)=>{
                 <p> meaning, pronunciation</p>
                 <p> ${category.meaning}, ${category.pronunciation}</p>
                 <div class="card-actions justify-between">
-                    <button class="btn"><i id='deatils'  class="fa-solid fa-circle-info"></i></button>
+                    <button class="btn" onclick='modalApi(${category.id})'><i class="fa-solid fa-circle-info"></i></button>
                     <button class="btn"><i class="fa-solid fa-volume-high"></i></button>
                 </div>
             </div>
@@ -56,23 +58,3 @@ const btnClickdData=(categorys)=>{
         categoryDataDisplay.append(div)
     });
 }
-// modal
-
-// const detailsInfo=()=>{
-//     const info=document.getElementById('deatils-info')
-//     const div=document.createElement('div')
-
-//     div.innerHTML=`
-//     <div class="card bg-base-100 h-[200px] shadow-sm text-center">
-//             <div class="card-body ">
-//                 <h2 class="">${category.word}</h2>
-//                 <p> meaning, pronunciation</p>
-//                 <p> ${category.meaning}, ${category.pronunciation}</p>
-                
-//             </div>
-//         </div>
-//     `
-//     info.append(div)
-    
-    
-// }
