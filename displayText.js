@@ -9,12 +9,24 @@ const displayCategoryData=(id)=>{
 }
 const btnClickdData=(categorys)=>{
     const categoryDataDisplay= document.getElementById('card-container')
+    const defaultText=document.getElementById('default-text')
+    const noDataText=document.getElementById('no-data-text')
+    defaultText.classList.add('hidden')
+    noDataText.classList.add('hidden')
     categoryDataDisplay.innerHTML="";
+
+    if(!categorys || categorys.length===0){
+        noDataText.classList.remove('hidden')
+        return; 
+        
+    }
+    // defaultText.style.display='none'
     categorys.forEach(category => {
         const div= document.createElement('div')
+        
         div.innerHTML=`
-        <div class="card bg-base-100 shadow-sm text-center">
-            <div class="card-body">
+        <div class="card bg-base-100 h-[200px] shadow-sm text-center">
+            <div class="card-body ">
                 <h2 class="">${category.word}</h2>
                 <p> meaning, pronunciation</p>
                 <p> ${category.meaning}, ${category.pronunciation}</p>
@@ -24,8 +36,9 @@ const btnClickdData=(categorys)=>{
                 </div>
             </div>
         </div>
+        
+        
         `
         categoryDataDisplay.append(div)
     });
 }
- displayCategoryData()

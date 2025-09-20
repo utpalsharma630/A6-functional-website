@@ -50,7 +50,23 @@
             <div id="allDisplayData" class="grid md:grid-cols-4  lg:grid-cols-7 items-center text-center justify-center py-5 gap-4"></div>
 
             <!-- default text with display -->
-             <div id="card-container" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 items-center justify-center"></div>
+             <section>
+                <div id="default-text" class="bg-gray-100 text-center py-15 rounded ">
+                    <h2 class="text-sm text-[#79716B] mb-3">আপনি এখনো কোন Lesson Select করেন নি</h2>
+                    <h2 class="text-3xl font-medium text-[#292524]">একটি Lesson Select করুন।</h2>
+                </div>
+
+                <!-- no data text -->
+                <div id="no-data-text" class="hidden bg-gray-100 text-center py-15 rounded ">
+                    <img class="mx-auto" src="assets/alert-error.png" alt="">
+                    <h2 class="text-sm text-[#79716B] mb-3">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</h2>
+                    <h2 class="text-3xl font-medium text-[#292524]">নেক্সট Lesson এ যান</h2>
+                </div>
+
+
+                <div id="card-container" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 items-center justify-center"></div>
+                
+             </section>
 
         </div>
 
@@ -87,7 +103,7 @@
 
     </main>
 
-    <footer class="border-t-2 border-orange-100">
+    <footer class="border-t-2 border-orange-100 p-3">
         <div class="container mx-auto flex items-center justify-between py-5 ">
              <div>
                 <div>
