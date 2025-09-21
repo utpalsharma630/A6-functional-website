@@ -45,10 +45,10 @@ const btnClickdData=(categorys)=>{
             <div class="card-body ">
                 <h2 class="">${category.word}</h2>
                 <p> meaning, pronunciation</p>
-                <p> ${category.meaning}, ${category.pronunciation}</p>
+                <p> ${category.meaning ? category.meaning:"শব্দ পাওয়া যায়নি"}, ${category.pronunciation ? category.pronunciation:"Pronounciation পাওয়া  যায়নি"}</p>
                 <div class="card-actions justify-between">
                     <button class="btn" onclick='modalApi(${category.id})'><i class="fa-solid fa-circle-info"></i></button>
-                    <button class="btn"><i class="fa-solid fa-volume-high"></i></button>
+                    <button onclick="pronounceWord('${category.word}')" class="btn"><i class="fa-solid fa-volume-high"></i></button>
                 </div>
             </div>
         </div>
@@ -58,3 +58,10 @@ const btnClickdData=(categorys)=>{
         categoryDataDisplay.append(div)
     });
 }
+// sounde effect----------
+
+ function pronounceWord(word) {
+      const utterance = new SpeechSynthesisUtterance(word);
+      utterance.lang = 'en-EN'; // english
+      window.speechSynthesis.speak(utterance);
+    }

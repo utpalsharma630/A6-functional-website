@@ -16,9 +16,9 @@ const modalText=(data)=>{
    const div= document.createElement('div');
         div.innerHTML=`
         <h2 class='text-xl font-bold'>${data.word}</h2>
-        <h2>meaning: ${data.meaning}</h2>
+        <h2>meaning: ${data.meaning ? data.meaning: "অর্থ পাওয়া যায়নি"}</h2>
         <h2 class="text-base font-bold">Example: ${data.sentence}</h2>
-        <h2 class="text-base font-medium ">সমার্থক শব্দ গুলো: ${data.synonyms}</h2>
+        <h2 class="text-base font-medium ">সমার্থক শব্দ গুলো: ${data.synonyms ? data.synonyms: 'synonyms পাওয়া যায়নি'}</h2>
 
         
         `
