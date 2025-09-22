@@ -12,17 +12,25 @@ const clickBtn=()=>{
         
 
 
-        alert('Successfully')
+        // alert('Successfully')
+       
+            Swal.fire({
+                title: "Success!",
+                text: "You have logged in successfully.",
+                icon: "success",
+                confirmButtonText: "OK"
+                    
+            });
         
     }
     else{
-        alert('Wrong password')
+        Swal.fire({
+            title: "Wrong Password",
+            text: "Please try again.",
+            icon: "error",
+            confirmButtonText: "Retry"
+        });
         
     }
 }
 
-// Swal.fire({
-//                     title: "Drag me!",
-//                     icon: "success",
-//                     draggable: true
-//                 })
